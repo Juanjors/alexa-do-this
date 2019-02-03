@@ -1,18 +1,17 @@
 
 import { RequestHandler } from "ask-sdk-core";
+import { Constants } from "../data/constants";
 
 export const LaunchHandler: RequestHandler = {
     canHandle(handlerInput) {
-        return true; //handlerInput.requestEnvelope.request.type === 'IntentRequest'
-        //&& handlerInput.requestEnvelope.request.intent.name === 'DoThisIntent'
-
+        return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speechText = "¡Hola mundo!";
 
         return handlerInput.responseBuilder
-            .speak(speechText)
-            .withSimpleCard(speechText, speechText)
+            .speak(Constants.WELCOME)
+            .withSimpleCard(Constants.WELCOME, Constants.WELCOME)
+            .reprompt(Constants.WELCOME)
             .getResponse();
     },
 };

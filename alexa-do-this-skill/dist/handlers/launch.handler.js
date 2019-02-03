@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const constants_1 = require("../data/constants");
 exports.LaunchHandler = {
     canHandle(handlerInput) {
-        return true; //handlerInput.requestEnvelope.request.type === 'IntentRequest'
-        //&& handlerInput.requestEnvelope.request.intent.name === 'DoThisIntent'
+        return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speechText = "¡Hola mundo!";
         return handlerInput.responseBuilder
-            .speak(speechText)
-            .withSimpleCard(speechText, speechText)
+            .speak(constants_1.Constants.WELCOME)
+            .withSimpleCard(constants_1.Constants.WELCOME, constants_1.Constants.WELCOME)
+            .reprompt(constants_1.Constants.WELCOME)
             .getResponse();
     },
 };

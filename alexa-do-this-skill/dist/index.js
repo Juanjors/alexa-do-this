@@ -10,8 +10,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Alexa = __importStar(require("ask-sdk-core"));
 const launch_handler_1 = require("./handlers/launch.handler");
 const sessionended_handler_1 = require("./handlers/sessionended.handler");
+const controlcomputer_handler_1 = require("./handlers/controlcomputer.handler");
 const skillBuilder = Alexa.SkillBuilders.custom();
-exports.handler = skillBuilder.addRequestHandlers(launch_handler_1.LaunchHandler, sessionended_handler_1.SessionEndedHandler).lambda();
+exports.handler = skillBuilder.addRequestHandlers(launch_handler_1.LaunchHandler, sessionended_handler_1.SessionEndedHandler, controlcomputer_handler_1.ControlComputerHandler).lambda();
 // .addRequestInterceptors(
 // )
 // .addErrorHandlers(ErrorHandlerIntent)

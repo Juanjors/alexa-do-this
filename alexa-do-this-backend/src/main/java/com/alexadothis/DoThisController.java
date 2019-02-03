@@ -20,7 +20,7 @@ public class DoThisController {
 	}
 
 	
-	@RequestMapping(value = "/stopshutdown", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/stopshutdown", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String stopShutdown() throws Exception {
 		this.cmdService.stopShutdown();
 		return "Apagado cancelado";
